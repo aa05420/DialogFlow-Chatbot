@@ -1,22 +1,3 @@
-# # save this as app.py
-# from flask import Flask
-# from flask import request
-# app = Flask(__name__)
-
-# @app.route("/")
-# def hello():
-#     return "Hello, World!"
-
-
-# @app.route('/webhook',methods=['POST'])
-# def webhook():
-#     req = request.get_json(force=True)
-#     print(req)
-
-#     #process 
-#     return {
-#         'fulfillmentText':'Hello'
-#     }
 
 from flask import Flask, request, jsonify
 import requests
