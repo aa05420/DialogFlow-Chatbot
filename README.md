@@ -1,80 +1,45 @@
+# 📦 DialogFlow Shipment Tracker Chatbot (Flask API)
 
-DialogFLow
-This is a web-integrated chatbot built using Google DialogFlow, designed to provide conversational interactions through a simple front-end UI. The project demonstrates how to integrate DialogFlow’s natural language understanding with a web interface using JavaScript, Node.js, and Express.js.
+This is a DialogFlow-integrated chatbot that provides real-time shipment updates based on an order ID. It uses a Flask-based webhook to connect with an external API and return shipment information in a user-friendly format.
 
-💡 Features
-✅ Google DialogFlow integration
+## 🚀 Features
 
-💬 Web-based user interface for chatbot interaction
+- Connects DialogFlow to a Flask backend
+- Handles natural language queries for shipment tracking
+- Sends order ID to an external API and retrieves shipment date
+- Formats ISO date into readable output
+- Includes basic error handling for failed API calls
 
-🌐 Uses Express.js as backend server
+## 📁 What's in this Project
 
-🔐 Includes environment configuration for secure API key management
-
-🔄 Real-time communication via HTTP
-
-📁 Project Structure
-bash
-Copy
-Edit
 DialogFlow-Chatbot/
 │
-├── public/               # Frontend files (HTML, CSS, JS)
-│   └── index.html        # Chat UI
-│   └── script.js         # AJAX for sending user input to server
-│
-├── server.js             # Node.js backend server
-├── package.json          # Node project dependencies
-├── .env                  # Environment variables (DialogFlow credentials)
-└── README.md             # Project documentation
-⚙️ Setup Instructions
-1. Clone the Repository
-bash
+├── app.py # Main Flask server with webhook logic
+├── requirements.txt # Python dependencies (Flask, requests)
+└── README.md # Project documentation
+
+`app.py` contains:
+  - `/` route to test the server
+  - `/webhook` route to handle POST requests from DialogFlow
+  - Logic to send `orderId` to an external API and return shipment status
+
+- External API used:
+https://orderstatusapi-dot-organization-project-311520.uc.r.appspot.com/api/getOrderStatus
+
+csharp
 Copy
 Edit
-git clone https://github.com/aa05420/DialogFlow-Chatbot.git
-cd DialogFlow-Chatbot
-2. Install Dependencies
-bash
-Copy
-Edit
-npm install
-3. Setup DialogFlow Credentials
-Create a Google Cloud project with DialogFlow API enabled.
 
-Generate a service account key (JSON) from Google Cloud Console.
+## 🧪 Example
 
-Save it in the root directory and name it dialogflow-key.json (or update the path in code).
+**User says:**  
+"What is the status of order 12345?"
 
-Create a .env file:
+**Bot replies:**  
+"The shipment for order 12345 is scheduled for 07-15-2025 13:45:00 UTC."
 
-ini
-Copy
-Edit
-GOOGLE_APPLICATION_CREDENTIALS=dialogflow-key.json
-PROJECT_ID=your-dialogflow-project-id
-4. Run the Server
-bash
-Copy
-Edit
-node server.js
-Then open http://localhost:3000 in your browser.
+## 🛡️ Error Handling
 
-🛠️ Technologies Used
-DialogFlow (ES)
-
-Node.js
-
-Express.js
-
-HTML / CSS / JavaScript
-
-dotenv
-
-
-🧠 Future Improvements
-Add speech-to-text input
-
-Improve UI/UX with chat history and avatars
-
+If something goes wrong, the bot responds with:  
+"Sorry, an error occurred while processing your request."
 
