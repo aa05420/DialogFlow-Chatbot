@@ -12,11 +12,6 @@ This is a DialogFlow-integrated chatbot that provides real-time shipment updates
 
 ## 📁 What's in this Project
 
-DialogFlow-Chatbot/
-│
-├── app.py # Main Flask server with webhook logic
-├── requirements.txt # Python dependencies (Flask, requests)
-└── README.md # Project documentation
 
 `app.py` contains:
   - `/` route to test the server
@@ -26,9 +21,6 @@ DialogFlow-Chatbot/
 - External API used:
 https://orderstatusapi-dot-organization-project-311520.uc.r.appspot.com/api/getOrderStatus
 
-csharp
-Copy
-Edit
 
 ## 🧪 Example
 
